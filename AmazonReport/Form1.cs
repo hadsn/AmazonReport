@@ -22,20 +22,37 @@ namespace AmazonReport
 
         private void makeButton_Click(object sender, EventArgs e)
         {
-            //Listからstringに変換
-            string asinAnItems = String.Join("\r\n", asinAnItemList);
-            string asinItemses = String.Join("\r\n", asinItemsList);
+            if(asinAnItemList.Count != 0)
+            {
+                string asinAnItems;
+                string asinItemses;
+                if (outputUrl.Checked)
+                {
+                    asinAnItems = String.Join("\r\nhttps://www.amazon.co.jp/dp/", asinAnItemList);
+                    asinItemses = String.Join("\r\nhttps://www.amazon.co.jp/dp/", asinItemsList);
+                    asinAnItems = "https://www.amazon.co.jp/dp/" + asinAnItems;
+                    asinItemses = "https://www.amazon.co.jp/dp/" + asinItemses;
+                }
+                else
+                {
+                    //Listからstringに変換
+                    asinAnItems = String.Join("\r\n", asinAnItemList);
+                    asinItemses = String.Join("\r\n", asinItemsList);
 
-            //ASINリストのフォームを表示・終了
-            asinListForm f2 = new asinListForm();
-            f2.asinAnItems = asinAnItems;
-            f2.asinItemses = asinItemses;
-            f2.ShowDialog();
-            f2.Dispose();
+                }
 
-            //リストをそれぞれクリア
-            asinAnItemList.Clear();
-            asinItemsList.Clear();
+                //ASINリストのフォームを表示・終了
+                asinListForm f2 = new asinListForm();
+                f2.asinAnItems = asinAnItems;
+                f2.asinItemses = asinItemses;
+                f2.ShowDialog();
+                f2.Dispose();
+
+                //リストをそれぞれクリア
+                asinAnItemList.Clear();
+                asinItemsList.Clear();
+
+            }
         }
 
         private void clearButton_Click(object sender, EventArgs e)

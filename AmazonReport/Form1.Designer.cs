@@ -34,6 +34,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.makeButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.outputUrl = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -92,15 +93,17 @@
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.Controls.Add(this.makeButton, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.clearButton, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.clearButton, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.outputUrl, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(776, 27);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
@@ -111,7 +114,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.makeButton.Location = new System.Drawing.Point(3, 3);
             this.makeButton.Name = "makeButton";
-            this.makeButton.Size = new System.Drawing.Size(382, 21);
+            this.makeButton.Size = new System.Drawing.Size(252, 21);
             this.makeButton.TabIndex = 0;
             this.makeButton.Text = "生成";
             this.makeButton.UseVisualStyleBackColor = true;
@@ -122,13 +125,26 @@
             this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.clearButton.Location = new System.Drawing.Point(391, 3);
+            this.clearButton.Location = new System.Drawing.Point(519, 3);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(382, 21);
+            this.clearButton.Size = new System.Drawing.Size(254, 21);
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "クリア";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // outputUrl
+            // 
+            this.outputUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.outputUrl.AutoSize = true;
+            this.outputUrl.Location = new System.Drawing.Point(261, 3);
+            this.outputUrl.Name = "outputUrl";
+            this.outputUrl.Size = new System.Drawing.Size(252, 21);
+            this.outputUrl.TabIndex = 2;
+            this.outputUrl.Text = "URL出力";
+            this.outputUrl.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -141,6 +157,7 @@
             this.Text = "AmazonのASINをリストにする奴";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -152,6 +169,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button makeButton;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.CheckBox outputUrl;
     }
 }
 
