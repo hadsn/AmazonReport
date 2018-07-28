@@ -16,5 +16,10 @@ namespace AmazonReport
         {
             InitializeComponent();
         }
+
+        private void asinListForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

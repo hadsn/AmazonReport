@@ -31,8 +31,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.anIntemText = new System.Windows.Forms.TextBox();
+            this.itemsText = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,8 +45,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.anIntemText, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.itemsText, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -75,27 +75,27 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "複数:";
             // 
-            // textBox1
+            // anIntemText
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.anIntemText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(3, 15);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(770, 195);
-            this.textBox1.TabIndex = 2;
+            this.anIntemText.Location = new System.Drawing.Point(3, 15);
+            this.anIntemText.Multiline = true;
+            this.anIntemText.Name = "anIntemText";
+            this.anIntemText.Size = new System.Drawing.Size(770, 195);
+            this.anIntemText.TabIndex = 2;
             // 
-            // textBox2
+            // itemsText
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.itemsText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(3, 228);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(770, 195);
-            this.textBox2.TabIndex = 3;
+            this.itemsText.Location = new System.Drawing.Point(3, 228);
+            this.itemsText.Multiline = true;
+            this.itemsText.Name = "itemsText";
+            this.itemsText.Size = new System.Drawing.Size(770, 195);
+            this.itemsText.TabIndex = 3;
             // 
             // asinListForm
             // 
@@ -105,6 +105,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "asinListForm";
             this.Text = "ASINリスト";
+            this.Load += new System.EventHandler(this.asinListForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -116,7 +117,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox anIntemText;
+        private System.Windows.Forms.TextBox itemsText;
     }
 }
