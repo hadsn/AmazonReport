@@ -22,14 +22,18 @@ namespace AmazonReport
 
         private void makeButton_Click(object sender, EventArgs e)
         {
+            //Listからstringに変換
             string asinAnItems = String.Join("\r\n", asinAnItemList);
             string asinItemses = String.Join("\r\n", asinItemsList);
-            MessageBox.Show(asinAnItems);
+
+            //ASINリストのフォームを表示・終了
             asinListForm f2 = new asinListForm();
             f2.asinAnItems = asinAnItems;
             f2.asinItemses = asinItemses;
             f2.ShowDialog();
             f2.Dispose();
+
+            //リストをそれぞれクリア
             asinAnItemList.Clear();
             asinItemsList.Clear();
         }
@@ -40,6 +44,7 @@ namespace AmazonReport
             asinItemsList.Clear();
         }
 
+        //単品ボタンにD&Dなカーソルがきたときの処理
         private void anItem_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("UniformResourceLocator") || e.Data.GetDataPresent("UniformResourceLocatorW"))
@@ -48,6 +53,7 @@ namespace AmazonReport
             }
         }
 
+        //単品ボタンにD&Dされた時の処理
         private void anItem_DragDrop(object sender, DragEventArgs e)
         {
             //URLからASINを抜く
@@ -59,6 +65,7 @@ namespace AmazonReport
 
         }
 
+        //複数個ボタンにD&Dなカーソルがきたときの処理
         private void items_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent("UniformResourceLocator") || e.Data.GetDataPresent("UniformResourceLocatorW"))
@@ -67,6 +74,7 @@ namespace AmazonReport
             }
         }
 
+        //複数個ボタンにD&Dされた時の処理
         private void items_DragDrop(object sender, DragEventArgs e)
         {
             //URLからASINを抜く
@@ -87,19 +95,8 @@ namespace AmazonReport
             string asin = new string(uri.ToCharArray());
             if (!(asin.IndexOf("dp/") == -1 || asin.IndexOf("dp/") == 0))
             {
-                /*
-                //書籍 (ISBN) 対応でとりあえず13桁で抜く
-                uri.CopyTo(uri.IndexOf("dp/") + 3, asin, 0, 13);
-                //10桁ASINの場合は10桁で撮り直す
-                if (!(new string(asin).IndexOf("/") == -1 || new string(asin).IndexOf("/") == 0))
-                {
-                    
-                    uri.CopyTo(uri.IndexOf("dp/") + 3, asin, 0, 10);
-                    asin[10] = '\0';
-                }*/
                 asin = asin.Remove(asin.IndexOf("/", asin.IndexOf("dp/") + 3));
                 asin = asin.Remove(0, asin.IndexOf("dp/") + 3);
-                MessageBox.Show(asin);
                 return (asin);
             }
             else
