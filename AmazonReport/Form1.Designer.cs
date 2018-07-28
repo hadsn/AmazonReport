@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.anItem = new System.Windows.Forms.Button();
+            this.items = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.makeButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
@@ -46,8 +46,8 @@
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.anItem, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.items, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 42);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -56,31 +56,37 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(775, 396);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // button2
+            // anItem
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.anItem.AllowDrop = true;
+            this.anItem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(769, 192);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "単品";
-            this.button2.UseVisualStyleBackColor = true;
+            this.anItem.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.anItem.Location = new System.Drawing.Point(3, 3);
+            this.anItem.Name = "anItem";
+            this.anItem.Size = new System.Drawing.Size(769, 192);
+            this.anItem.TabIndex = 0;
+            this.anItem.Text = "単品";
+            this.anItem.UseVisualStyleBackColor = true;
+            this.anItem.DragDrop += new System.Windows.Forms.DragEventHandler(this.anItem_DragDrop);
+            this.anItem.DragEnter += new System.Windows.Forms.DragEventHandler(this.anItem_DragEnter);
             // 
-            // button3
+            // items
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.items.AllowDrop = true;
+            this.items.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Location = new System.Drawing.Point(3, 201);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(769, 192);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "複数個";
-            this.button3.UseVisualStyleBackColor = true;
+            this.items.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.items.Location = new System.Drawing.Point(3, 201);
+            this.items.Name = "items";
+            this.items.Size = new System.Drawing.Size(769, 192);
+            this.items.TabIndex = 1;
+            this.items.Text = "複数個";
+            this.items.UseVisualStyleBackColor = true;
+            this.items.DragDrop += new System.Windows.Forms.DragEventHandler(this.items_DragDrop);
+            this.items.DragEnter += new System.Windows.Forms.DragEventHandler(this.items_DragEnter);
             // 
             // tableLayoutPanel2
             // 
@@ -109,6 +115,7 @@
             this.makeButton.TabIndex = 0;
             this.makeButton.Text = "生成";
             this.makeButton.UseVisualStyleBackColor = true;
+            this.makeButton.Click += new System.EventHandler(this.makeButton_Click);
             // 
             // clearButton
             // 
@@ -121,6 +128,7 @@
             this.clearButton.TabIndex = 1;
             this.clearButton.Text = "クリア";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // Form1
             // 
@@ -139,8 +147,8 @@
 
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button anItem;
+        private System.Windows.Forms.Button items;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button makeButton;
         private System.Windows.Forms.Button clearButton;
