@@ -12,8 +12,8 @@ namespace AmazonReport
 {
     public partial class Form1 : Form
     {
-        List<string> asinAnItemList = new List<string>();
-        List<string> asinItemsList = new List<string>();
+        public List<string> asinAnItemList = new List<string>();
+        public List<string> asinItemsList = new List<string>();
 
         public Form1()
         {
@@ -22,10 +22,16 @@ namespace AmazonReport
 
         private void makeButton_Click(object sender, EventArgs e)
         {
-            string asinAnItems = String.Join("\n", asinAnItemList);
-            string asinItemses = String.Join("\n", asinItemsList);
+            string asinAnItems = String.Join("\r\n", asinAnItemList);
+            string asinItemses = String.Join("\r\n", asinItemsList);
             MessageBox.Show(asinAnItems);
-
+            asinListForm f2 = new asinListForm();
+            f2.asinAnItems = asinAnItems;
+            f2.asinItemses = asinItemses;
+            f2.ShowDialog();
+            f2.Dispose();
+            asinAnItemList.Clear();
+            asinItemsList.Clear();
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -45,7 +51,12 @@ namespace AmazonReport
         private void anItem_DragDrop(object sender, DragEventArgs e)
         {
             //URLからASINを抜く
-            asinAnItemList.Add(getAsinFromURL(e.Data.GetData(DataFormats.Text).ToString()));
+            try
+            {
+                asinAnItemList.Add(getAsinFromURL(e.Data.GetData(DataFormats.Text).ToString()));
+            }
+            catch (ArgumentException ae) { }
+
         }
 
         private void items_DragEnter(object sender, DragEventArgs e)
@@ -59,8 +70,14 @@ namespace AmazonReport
         private void items_DragDrop(object sender, DragEventArgs e)
         {
             //URLからASINを抜く
-            asinAnItemList.Add(getAsinFromURL(e.Data.GetData(DataFormats.Text).ToString()));
-            asinItemsList.Add(getAsinFromURL(e.Data.GetData(DataFormats.Text).ToString()));
+            try
+            {
+                string asin = getAsinFromURL(e.Data.GetData(DataFormats.Text).ToString());
+                asinAnItemList.Add(asin);
+                asinItemsList.Add(asin);
+
+            }
+            catch(ArgumentException ae) { }
         }
 
         //URLからASINを抜くメソッド

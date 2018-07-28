@@ -12,6 +12,9 @@ namespace AmazonReport
 {
     public partial class asinListForm : Form
     {
+        public string asinAnItems { get; set; }
+        public string asinItemses { get; set; }
+
         public asinListForm()
         {
             InitializeComponent();
@@ -19,7 +22,8 @@ namespace AmazonReport
 
         private void asinListForm_Load(object sender, EventArgs e)
         {
-
+            anIntemText.Text = asinAnItems;
+            itemsText.Text = asinItemses;
         }
     }
 }
